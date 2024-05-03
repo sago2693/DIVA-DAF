@@ -32,7 +32,6 @@ def get_analytics(input_path: Path, data_folder_name: str, gt_folder_name: str, 
     :return: Tuple of analytics for the data and ground truth
     :rtype: Tuple[Dict[str, Any], Dict[str, Any]]
     """
-
     expected_keys_data = ['mean', 'std']
     expected_keys_gt = ['class_weights', 'class_encodings']
 
@@ -53,7 +52,7 @@ def get_analytics(input_path: Path, data_folder_name: str, gt_folder_name: str, 
     file_names_gt = np.asarray([str(item[1]) for item in gt_data_path_list])
 
     if missing_analytics_data:
-        mean, std = compute_mean_std(file_names=file_names_data)
+        mean, std = compute_mean_std(file_names=file_names_data,inmem=True)
         analytics_data = {'mean': mean.tolist(),
                           'std': std.tolist()}
         # save json

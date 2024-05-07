@@ -80,6 +80,13 @@ You can override any parameter from command line like this
 python run.py trainer.max_epochs=20 datamodule.batch_size=64
 ```
 
+The one that is working for me now
+```yaml
+python run.py trainer.accelerator=cpu trainer.precision=32 trainer.devices=1
+
+```
+
+
 <br>
 
 ### Setup PyCharm
